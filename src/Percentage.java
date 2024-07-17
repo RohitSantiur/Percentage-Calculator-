@@ -14,6 +14,7 @@ public class Percentage extends javax.swing.JFrame {
      */
     public Percentage() {
         initComponents();
+        Select.setSelectedItem(null);
     }
 
     /**
@@ -25,49 +26,89 @@ public class Percentage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        value = new javax.swing.JLabel();
-        rate = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        labelvalue1 = new javax.swing.JLabel();
+        labelvalue2 = new javax.swing.JLabel();
+        textvalue1 = new javax.swing.JTextField();
+        textvalue2 = new javax.swing.JTextField();
+        Select = new javax.swing.JComboBox<>();
+        labelresult = new javax.swing.JLabel();
+        textresult = new javax.swing.JTextField();
+        labelbackg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Percentage Calculator");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        value.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        value.setText("Enter Value :");
+        labelvalue1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        labelvalue1.setText("Enter Value 1 :");
+        getContentPane().add(labelvalue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 44, 168, 39));
 
-        rate.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        rate.setText("Enter Percentage Rate :");
+        labelvalue2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        labelvalue2.setText("Enter Value 2 :");
+        getContentPane().add(labelvalue2, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 95, 220, 35));
 
-        jTextField1.setText("jTextField1");
+        textvalue1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textvalue1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(textvalue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 44, 163, 39));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(value, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(rate, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                    .addComponent(value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(rate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(260, Short.MAX_VALUE))
-        );
+        textvalue2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textvalue2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(textvalue2, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 95, 163, 38));
+
+        Select.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Calculate Percentage", "Calculate Increased Percentage", "Calculate Decreased Percentage", " ", " " }));
+        Select.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Select, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 166, 317, 59));
+
+        labelresult.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        labelresult.setText(" Result : ");
+        getContentPane().add(labelresult, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 252, 110, 41));
+        getContentPane().add(textresult, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 253, 187, 41));
+
+        labelbackg.setIcon(new javax.swing.ImageIcon("C:\\Users\\arjun\\Downloads\\360_F_355607062_zYMS8jaz4SfoykpWz5oViRVKL32IabTP.jpg")); // NOI18N
+        getContentPane().add(labelbackg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 340));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void textvalue1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textvalue1ActionPerformed
+        
+    }//GEN-LAST:event_textvalue1ActionPerformed
+
+    private void SelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectActionPerformed
+    try{
+    double a=Double.parseDouble(textvalue1.getText());
+    double b=Double.parseDouble(textvalue2.getText());
+    if(Select.getSelectedItem().equals("Calculate Percentage")){
+       double Result=((a/b)*100);
+        textresult.setText(Result + "");
+    }
+    else if(Select.getSelectedItem().equals("Calculate Increased Percentage")){
+        double Result=((b-a)/a)*100;
+       textresult.setText(Result + "");
+    }
+    else if(Select.getSelectedItem().equals("Calculate Decreased Percentage")){
+        double Result=((a-b)/a)*100;
+        textresult.setText(Result + "");
+    }
+    }
+    catch(Exception e)
+    {   
+    }//GEN-LAST:event_SelectActionPerformed
+    }
+    private void textvalue2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textvalue2ActionPerformed
+
+    }//GEN-LAST:event_textvalue2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,16 +138,19 @@ public class Percentage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Percentage().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Percentage().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel rate;
-    private javax.swing.JLabel value;
+    private javax.swing.JComboBox<String> Select;
+    private javax.swing.JLabel labelbackg;
+    private javax.swing.JLabel labelresult;
+    private javax.swing.JLabel labelvalue1;
+    private javax.swing.JLabel labelvalue2;
+    private javax.swing.JTextField textresult;
+    private javax.swing.JTextField textvalue1;
+    private javax.swing.JTextField textvalue2;
     // End of variables declaration//GEN-END:variables
 }
